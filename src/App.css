@@ -1,0 +1,21 @@
+.Center {
+  text-align: center;
+}
+
+html {
+  background-image: url(./Images/star-wars-backgrounds-25.jpg);
+}
+
+.NoResult {
+  color: yellow;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.whole {
+  background-image: url(./Images/star-wars-backgrounds-25.jpg);
+  height: 100vh;
+  width: 100%;
+}
