@@ -7,12 +7,12 @@ export default function SearchResultDisplay(props) {
   //the props to be passed here are search results
 
   //no search results found
-  if (props.searchResult.count == 0) {
+  if (props.searchResult.count === 0) {
     return <h2 className="NoResult">No results found</h2>;
   }
 
   //one search result found
-  if (props.searchResult.count == 1) {
+  if (props.searchResult.count === 1) {
     return (
       <div>
         {/*  -name

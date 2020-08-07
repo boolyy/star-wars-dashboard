@@ -25,15 +25,28 @@ export default function SearchResultCard(props) {
   const [starships, setStarships] = useState("");
   const [vehicles, setVehicles] = useState("");
 
+  //replace http with https
+  function replaceHTTP(urlString) {
+    let indexOfP = urlString.indexOf("p");
+    let returnURL =
+      urlString.slice(0, indexOfP + 1) +
+      "s" +
+      urlString.slice(indexOfP + 1, urlString.length);
+    console.log(returnURL);
+    return returnURL;
+  }
+
   //typeOfArray can be "films", "species", "starships", "vehicles"
   async function createStringFromArray(array, typeOfArray) {
     //put array of urls in here
-    if (typeOfArray == "films") {
+    if (typeOfArray === "films") {
       let res;
       let data;
       let filmString = "";
+      let convertedURL;
       array.map(async (url) => {
-        res = await fetch(url);
+        convertedURL = replaceHTTP(await url);
+        res = await fetch(convertedURL);
         data = await res.json();
         if (filmString === "") {
           filmString = await data.title;
@@ -42,7 +55,7 @@ export default function SearchResultCard(props) {
         }
         setFilms(filmString);
       });
-    } else if (typeOfArray == "species") {
+    } else if (typeOfArray === "species") {
       if (array.length) {
         let res;
         let data;
@@ -58,7 +71,7 @@ export default function SearchResultCard(props) {
           setSpecies(speciesString);
         });
       }
-    } else if (typeOfArray == "starships") {
+    } else if (typeOfArray === "starships") {
       if (array.length) {
         let res;
         let data;
@@ -74,7 +87,7 @@ export default function SearchResultCard(props) {
           setStarships(starshipsString);
         });
       }
-    } else if (typeOfArray == "vehicles") {
+    } else if (typeOfArray === "vehicles") {
       if (array.length) {
         let res;
         let data;
@@ -107,6 +120,7 @@ export default function SearchResultCard(props) {
     const homeWorldData = await homeWorldRes.json();
     setHomeWorld(await homeWorldData.name);
 
+    //creates all of
     createStringFromArray(props.searchResultCard.films, "films");
     createStringFromArray(props.searchResultCard.species, "species");
     createStringFromArray(props.searchResultCard.starships, "starships");
