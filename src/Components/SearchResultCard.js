@@ -122,7 +122,8 @@ export default function SearchResultCard(props) {
     //update homeworld
     //homeworld url will be in props
     const homeWorldURL = props.searchResultCard.homeworld;
-    const homeWorldRes = await fetch(homeWorldURL);
+    const convertedHomeWorldURL = replaceHTTP(homeWorldURL);
+    const homeWorldRes = await fetch(convertedHomeWorldURL);
     const homeWorldData = await homeWorldRes.json();
     setHomeWorld(await homeWorldData.name);
 
