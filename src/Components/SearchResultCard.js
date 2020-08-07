@@ -60,8 +60,10 @@ export default function SearchResultCard(props) {
         let res;
         let data;
         let speciesString = "";
+        let convertedURL;
         array.map(async (url) => {
-          res = await fetch(url);
+          convertedURL = replaceHTTP(await url);
+          res = await fetch(convertedURL);
           data = await res.json();
           if (speciesString === "") {
             speciesString = await data.name;
@@ -76,8 +78,10 @@ export default function SearchResultCard(props) {
         let res;
         let data;
         let starshipsString = "";
+        let convertedURL;
         array.map(async (url) => {
-          res = await fetch(url);
+          convertedURL = replaceHTTP(await url);
+          res = await fetch(convertedURL);
           data = await res.json();
           if (starshipsString === "") {
             starshipsString = await data.name;
@@ -92,8 +96,10 @@ export default function SearchResultCard(props) {
         let res;
         let data;
         let vehiclesString = "";
+        let convertedURL;
         array.map(async (url) => {
-          res = await fetch(url);
+          convertedURL = replaceHTTP(await url);
+          res = await fetch(convertedURL);
           data = await res.json();
           if (vehiclesString === "") {
             vehiclesString = await data.name;
