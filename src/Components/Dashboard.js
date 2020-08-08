@@ -12,15 +12,6 @@ export default class Dashboard extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
-
-  /* async componentDidMount() {
-    const baseURL = "https://swapi.dev/api/people/?search="; //this is the base url used by SWAPI
-    const searchURL = baseURL + this.state.search;
-    const res = await fetch(searchURL);
-    const data = await res.json();
-    this.setState({ searchResult: data, loading: false }); //assigns the whole response array to searchResult
-  } */
-
   /* 
   This needs a search bar, User can search and a list of people will show.
   They can choose one. If search does not return anything, then it will say no result found
@@ -65,7 +56,9 @@ export default class Dashboard extends React.Component {
 
     return (
       <div className="container">
-        <h1 className="yellow Center m-4">Star Wars Character Database</h1>
+        <h1 className="yellow Center m-4">
+          🌌 Star Wars Character Database 🚀
+        </h1>
         <input
           type="text"
           className="form-control"
