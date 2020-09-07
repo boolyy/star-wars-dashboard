@@ -15,7 +15,7 @@ export default function SearchResultDisplay(props) {
   return (
     <div className="container">
       {props.searchResult.results.map((result) => (
-        <div>
+        <div> 
           <SearchResultCard searchResultCard={result} />
         </div>
       ))}
